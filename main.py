@@ -2,7 +2,7 @@
 from tkinter import *
 
 import os
-from new_note import *
+import new_note
 import window
 
 class Main:
@@ -51,6 +51,7 @@ class Main:
 
     def open_note(self, event):
         print("main window open note")
+        new_note.Note().open_note()
 
 
 

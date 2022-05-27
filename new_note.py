@@ -3,12 +3,11 @@ import os
 import window
 
 class Note:
-    def __init__(self):
+    def __init__(self, ):
         global default_note_name
         global note_name
         
-        file_struct = os.listdir("/media/japemasterbrad/ZEUS/DEV/PYTHON/note-app/notes")
-        
+        file_struct = os.listdir("notes")
 
 #       generate new note name
         current_list_no = len(file_struct)
@@ -23,12 +22,6 @@ class Note:
             note_name = "New Note " + str(default_note_name)
 
         filename = note_name + ".txt"
-
-        os.system("clear")
-        print(f"Note name: " + note_name)
-        
-        input("Press enter to conitnue")
-        exit()
         
     def new_note(self):
         print("New note time")
@@ -40,5 +33,6 @@ class Note:
     def open_note(self):
         print("opening note")
         window.Window(note_name)
+
 
         
