@@ -1,4 +1,3 @@
-
 from tkinter import *
 
 import os
@@ -30,28 +29,29 @@ class Main:
         # Frames ----------------------------------------------------
         
         listbox = Frame(window, background="RED")
-        listbox.pack(pady=25)
+        listbox.pack(pady=25, side = "top")
         
-        button_frame = Frame(window, background="BLUE")
+        button_frame = Frame(window)
+        button_frame.pack(side = "bottom")
         
         # Listbox --------------ADD VERTICAL SCROLLBAR----------------
-        notes_list = Listbox(listbox, width=40, height=8)
+        notes_list = Listbox(listbox, width=40, height=10)
         notes_list.pack()
-        notes_list.bind("<Button-1>", self.open_note)
+        notes_list.bind("<Button-1>", self.new_note)
         
+        # Buttons ----------------------------------------------------
+        open_button = Button(button_frame, text="New Note", command=self.new_note)
+        open_button.pack(pady=10)
+
         for notes in file_struct:
             print(notes)
             notes_list.insert(END, notes)
             
-        # Buttons ----------------------------------------------------
-        # open_button = Button(button_frame, text="Open", command=self.open_note)
-
 
         window.mainloop()
 
-    def open_note(self, event):
-        print("main window open note")
-        new_note.Note().open_note()
+    def new_note(self):
+        new_note.Note()
 
 
 

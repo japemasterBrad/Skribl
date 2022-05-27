@@ -15,4 +15,4 @@ class Window:
         body.pack(side = "bottom")
 
         root.mainloop()
-        return test
+        return None
