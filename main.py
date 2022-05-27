@@ -1,15 +1,17 @@
-from cgitb import text
-from textwrap import fill
+
 from tkinter import *
+
 import os
 from new_note import *
+import window
 
-class Window:
-    def open_note(self):
-        pass
+class Main:
+    global app_name
+    app_name = "Skribl"
+
     
     def __init__(self) -> None:
-        file_struct = os.listdir("/media/japemasterbrad/ZEUS/DEV/PYTHON/note-app/notes")
+        file_struct = os.listdir("notes")
         button_height = 1
         
         def save_file():
@@ -35,17 +37,21 @@ class Window:
         # Listbox --------------ADD VERTICAL SCROLLBAR----------------
         notes_list = Listbox(listbox, width=40, height=8)
         notes_list.pack()
-        notes_list.bind("<Button-1>", Note.new_note)
+        notes_list.bind("<Button-1>", self.open_note)
         
         for notes in file_struct:
             print(notes)
             notes_list.insert(END, notes)
             
         # Buttons ----------------------------------------------------
-        open_button = Button(button_frame, text="Open", command=self.open_note)
+        # open_button = Button(button_frame, text="Open", command=self.open_note)
 
 
         window.mainloop()
 
+    def open_note(self, event):
+        print("main window open note")
 
-Window()
+
+
+Main()

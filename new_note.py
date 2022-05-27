@@ -1,6 +1,6 @@
-from email.policy import default
-from sqlite3 import *
+from tkinter import *
 import os
+import window
 
 class Note:
     def __init__(self):
@@ -25,14 +25,20 @@ class Note:
         filename = note_name + ".txt"
 
         os.system("clear")
-        print(f"Note name: {note_name}")
+        print(f"Note name: " + note_name)
         
         input("Press enter to conitnue")
         exit()
         
     def new_note(self):
         print("New note time")
-        return 
+        return None
     
     def get_note_name():
         return note_name
+
+    def open_note(self):
+        print("opening note")
+        window.Window(note_name)
+
+        
