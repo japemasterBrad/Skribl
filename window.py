@@ -1,6 +1,7 @@
 from tkinter import *
 
 class Window:
+    
     def __init__(self, note_name) -> None:
         root = Tk()
         root.title(note_name + " - Skribl")
@@ -8,17 +9,22 @@ class Window:
 
         button_frame = Button(root)
         button_frame.pack(side = 'top')
-        
-        save_button = Button(button_frame, text = "Save")
-        save_button.pack(side = "left")
+        save_button = Button(button_frame, text = "Save", command = self.save_body = True)
+        save_button.pack()
         
         exit_without_saving_button = Button(root, text = "Exit without saving")
-        exit_without_saving_button.pack(side = "right")
+        exit_without_saving_button.pack()
         
         body_frame = Frame(root, background="RED")
         body_frame.pack(side = "bottom", padx=10, pady=10)
 
         body = Text(body_frame)
         body.pack(side = "bottom")
-
+        
         root.mainloop()
+        
+    if self.save_body == True:
+        def save_body(self):
+            print("Saved")
+        
+        

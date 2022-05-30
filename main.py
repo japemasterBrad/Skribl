@@ -6,7 +6,7 @@ from tkinter import *
 
 import os
 from xml.dom.minidom import TypeInfo
-import new_note
+from new_note import *
 import window
 
 class Main:
@@ -33,8 +33,12 @@ class Main:
             _selection = get_selection()
             selection = list(_selection)
             selection_delete_point = selection.__len__() - 4
+            print(selection)
+            final_selection = None
+            Note.open_note(final_selection)
+                
             
-            delete_point = None               
+                       
 
             # for i in enumerate(selection):
             #     print(i)
@@ -70,7 +74,7 @@ class Main:
             
 
         
-        open_button = Button(button_frame, text="New Note", command=new_note.Note)
+        open_button = Button(button_frame, text="New Note", command=Note)
         open_button.pack(pady=10)
 
         root.mainloop()

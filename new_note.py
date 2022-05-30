@@ -27,7 +27,7 @@ class Note:
         self.new_name_input = self.name_input#.get()
      
         def submit(event):
-            # ########## take note of text input for selection later ##########
+            ########## take note of text input for selection later ##########
             print(self.name_input.get())
             self.new_note.destroy()
         
@@ -42,4 +42,6 @@ class Note:
 
 
 
-        
+    def open_note(self):
+        window.Window("Text Body")
+        #save note contents
