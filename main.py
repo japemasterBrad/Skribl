@@ -1,3 +1,4 @@
+from fileinput import filename
 from tkinter import *
 
 import os
@@ -5,54 +6,50 @@ import new_note
 import window
 
 class Main:
+    os.system("clear")
     global app_name
     app_name = "Skribl"
 
-    
-    def __init__(self) -> None:
+    def __init__(self):
+        
         file_struct = os.listdir("notes")
-        button_height = 1
-        
-        def save_file():
-            print("saving file now")
-            
-        def load_file():
-            print("loading file now")
-        # Tkinter init ----------------------------------------------------
-        
-        window = Tk()
-        window.title("Notes - Skribl")
-        window.geometry("200x270")
-        window.grid_columnconfigure(0, weight=1)
-        window.resizable(0, 0)
 
-        # Frames ----------------------------------------------------
-        
-        listbox = Frame(window, background="RED")
-        listbox.pack(pady=25, side = "top")
-        
-        button_frame = Frame(window)
+        root = Tk()
+        root.title("Notes - Skribl")
+        root.geometry("200x270")
+        root.grid_columnconfigure(0, weight=1)
+        root.resizable(0, 0)
+
+        note_list = Frame(root, background="RED")
+        note_list.pack(pady=25, side = "top")
+        button_frame = Frame(root)
         button_frame.pack(side = "bottom")
-        
-        # Listbox --------------ADD VERTICAL SCROLLBAR----------------
-        notes_list = Listbox(listbox, width=40, height=10)
+
+        notes_list = Listbox(note_list, width=40, height=9)
         notes_list.pack()
-        notes_list.bind("<Button-1>", self.new_note)
         
-        # Buttons ----------------------------------------------------
-        open_button = Button(button_frame, text="New Note", command=self.new_note)
-        open_button.pack(pady=10)
+        # listbox_selection = note_list.get()
+        # print(listbox_selection)
 
         for notes in file_struct:
-            print(notes)
             notes_list.insert(END, notes)
             
+       
 
-        window.mainloop()
+        # notes_list.bind("<Button-1>", open_note) # OPEN FROM CLASS
+        
+        open_button = Button(button_frame, text="New Note", command=new_note.Note)
+        open_button.pack(pady=10)
 
-    def new_note(self):
-        new_note.Note()
+        root.mainloop()
 
-
+            
 
 Main()
+
+
+'''
+Program sticking points:
+- cannot get string value for listbox selection
+
+'''
