@@ -1,6 +1,6 @@
 from array import array
 from fileinput import filename
-from re import L
+from re import I, L
 from select import select
 from tkinter import *
 
@@ -33,14 +33,27 @@ class Main:
             _selection = get_selection()
             selection = list(_selection)
             selection_delete_point = selection.__len__() - 4
-           
-            counter = 0
             
+            delete_point = None               
+
+            # for i in enumerate(selection):
+            #     print(i)
+            #     if i == selection_delete_point:
+            #         while delete_point != selection.__len__():
+            #             selection.remove(i)
+            #             # print(selection)
+                        
+                
+                
+###############################################################################################
             # selection is now an array
             # - loop throguh array to find ".txt" to os.remove
             # - remove them from array
             # - convert back to string again
-            
+###############################################################################################
+
+
+
             
         def get_selection(): 
             selection = notes_list.get(ANCHOR)
@@ -63,12 +76,5 @@ class Main:
         root.mainloop()
 
             
-
-Main()
-
-
-'''
-Program sticking points:
-- cannot get string value for listbox selection
-
-'''
+if __name__ == "__main__":
+    Main()
